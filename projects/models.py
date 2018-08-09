@@ -4,11 +4,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Projects(models.Model):
+class Project(models.Model):
     CreatedBy = models.ForeignKey(User, on_delete=models.CASCADE)
     CreatedDateTime = models.DateTimeField(auto_now=True)
     ModifiedDateTime = models.DateTimeField(auto_now_add=True)
-
     ProjectName = models.CharField(max_length=50)
     ProjectDescription = models.TextField()
     ProjectImage = models.ImageField(upload_to='project_images/')

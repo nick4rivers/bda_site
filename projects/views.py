@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Project
 
 # Create your views here.
 
 
 def project_test(request):
-    return HttpResponse("What up Bitches")
+    projects = Project.objects
+    return render(request, 'projects/base.html', {'projects': projects})
