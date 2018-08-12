@@ -18,5 +18,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.project_test, name='project_test')
+    path('', views.landing, name='landing'),
+    path('<int:project_id>', views.detail, name='detail'),
 ]

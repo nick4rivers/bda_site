@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+    {% block content %}
+        <div class="container">
+
+            <h1>
+            <img src="{{ project.AffiliationImage.url }}" height=45 width=45 class="d-inline-block align-center" href="#">
+            {{ project.ProjectName }}</h1>
+        </div>
+
+    {% endblock %}
