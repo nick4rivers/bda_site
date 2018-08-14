@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load leaflet_tags %}
+{% block content %}
+    
+    {% leaflet_js %}
+    {% leaflet_css %}
+    
+
+    {# ####################################################### #}
+    {# #########               LEAFLET MAP         ########### #}
+    {# ####################################################### #}
+
+    {# ##### MAP STYLE ##### #}
+    <style type="text/css">
+    #map_style {height: 400px;}
+    </style>
+    <script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
+    
+    {# ##### JAVASCRIPT FOR MAP ##### #}
+    <script type="text/javascript">
+    function map_init_basic (map, options) {
+        var geojsonPointLayer = new L.GeoJSON.AJAX("{% url 'project_points' %}", {
+            
+            onEachFeature: function(feature, layer) {
+                layer.bindPopup('<h2 class="text-muted">'+feature.properties.ProjectName.toString()+'</h2>'+
+                                '<h4>'+feature.properties.ProjectAffiliation.toString()+'</h4>'+
+                                '<a href="{% url "landing" %}">ViewProject</a>');
+            }
+        });
+
+    geojsonPointLayer.addTo(map);
+    }
+    </script>
+    
+    {# ##### MAP CONTAINER ##### #}
+    <div class="container pt-5">
+        {% leaflet_map "map_style" callback="window.map_init_basic" %}
+    </div>
+{% endblock %}

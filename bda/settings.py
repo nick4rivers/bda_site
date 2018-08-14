@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'leaflet',
     'projects',
+    'djgeojson'
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,10 @@ MEDIA_URL = '/media/'
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (44.2, -120.2),
     'DEFAULT_ZOOM': 6,
-    'ATTRIBUTION_PREFIX': 'Eco Logical Research',
+    'ATTRIBUTION_PREFIX': 'LEAFLET | ESRI',
     'TILES': [('Imagery', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {}), ('Topography', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {})]
+}
+
+SERIALIZATION_MODULES = {
+    'geojson': 'django.contrib.gis.serializers.geojson',
 }

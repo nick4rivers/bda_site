@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.landing, name='landing'),
     path('<int:project_id>', views.detail, name='detail'),
+    path('points.data/', views.project_points, name='project_points'),
+    path('map_view/', views.map_view, name='map_view'),
 ]

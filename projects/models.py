@@ -18,7 +18,10 @@ class Project(models.Model):
     AffiliationImage = models.ImageField(upload_to='affiliation_images/')
     PrimaryContactName = models.CharField(max_length=60)
     PrimaryContactEmail = models.EmailField(max_length=100)
-    ProjectLocation = models.PointField(null=True, blank=True, srid=4326)
+    geom = models.PointField(null=True, blank=True, srid=4326)
 
     def __str__(self):
         return self.ProjectName
+
+    def __unicode__(self):
+        return self.name
