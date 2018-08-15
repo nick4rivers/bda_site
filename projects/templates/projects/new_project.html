@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container">
+        <h3 class="display-3">Add New Project</h3>
+        <p class="lead text-muted">Please enter attributes related to your project below</p>
+        {# ################## START FORM ################### #}
+        <form action="{% url 'new_project' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {# PROJECT NAME #}
+            
+            <div class="form-group">
+                <label for="ProjectName">Project Name</label>
+                <input placeholder="e.g., Bridge Creek Intensively Monitored Watershed" class="form-control" type="text" name="ProjectName">
+            </div>
+            {# FIRST ROW #}
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StreamName">Stream Name</label>
+                        <input placeholder="e.g., Bridge Creek" class="form-control" type="text" name="StreamName">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Basin Name">Basin Name</label>
+                        <input placeholder="e.g., John Day" class="form-control" type="text" name="BasinName">
+                    </div>
+                </div>
+            </div>
+            {# SECOND ROW #}
+            <div class="row">
+                <div class="col">
+                    
+                    <div class="form-group">
+                        <label for="ProjectAffiliation">Project Affiliation</label>
+                        <input placeholder="e.g., NOAA" class="form-control" type="text" name="ProjectAffiliation">
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="ProjectImage">Project Image</label>
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="ProjectImage">Upload Image</label>
+                            <input type="file" class="custom-file-input" name="ProjectImage">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {# THIRD ROW #}
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="ProjectLatitude">Latitude</label>
+                        <input placeholder="e.g., 44.123456" class="form-control" type="number" step="0.000001" name="ProjectLatitude">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="ProjectLongitude">Longitude</label>
+                        <input placeholder="e.g., -120.123456" class="form-control" type="number" step="0.000001" name="ProjectLongitude">
+                    </div>
+                </div>
+            </div>
+            
+            <h4 class="text-muted">Project Implementation</h4>
+            <hr>
+
+
+            <button class="btn btn-lg btn-secondary" type="submit">Save Project</button>
+        </form>
+    </div>
+{% endblock %}

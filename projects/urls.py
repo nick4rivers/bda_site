@@ -22,4 +22,6 @@ urlpatterns = [
     path('<int:project_id>', views.detail, name='detail'),
     path('points.data/', views.project_points, name='project_points'),
     path('map_view/', views.map_view, name='map_view'),
+    path('list_view/', views.list_view, name='list_view'),
+    path('new_project/', views.new_project, name='new_project'),
 ]

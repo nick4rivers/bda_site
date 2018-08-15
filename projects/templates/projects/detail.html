@@ -7,6 +7,7 @@
             <h1>
             <img src="{{ project.AffiliationImage.url }}" height=45 width=45 class="d-inline-block align-center" href="#">
             {{ project.ProjectName }}</h1>
+            {{ project.get_lat }}
         </div>
 
     {% endblock %}
