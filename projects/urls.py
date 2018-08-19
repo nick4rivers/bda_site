@@ -24,4 +24,5 @@ urlpatterns = [
     path('map_view/', views.map_view, name='map_view'),
     path('list_view/', views.list_view, name='list_view'),
     path('new_project/', views.new_project, name='new_project'),
+    path('<int:project_id>/edit_project', views.edit_project, name='edit_project'),
 ]

@@ -4,25 +4,22 @@
     
     
     {# ##### PAGE HEADER ##### #}
-    <div class="container text-center">
-        <h3 class="display-3">BDA PROJECTS</h3>
-        <p class="lead">Existing BDA projects found throughout the PNW. You can select projects to see more detail and project attributes</p>
-        
-        <div class="btn-group pb-3" role="group" aria-label="group">
-            <button type="button" class="btn btn-outline-secondary">
-            <a class="text-muted" href="{% url 'map_view' %}">Map View</a>
-            </button>
-            <button type="button" class="btn btn-secondary">List View</button>
-        </div>
-    </div>
     <div class="container">
-        <h4 class="display-4">BDA Projects</h4>
-        <p class="text-muted">Projects are listed in order from most recent install date</p>
+        <h4 class="display-4">BDA PROJECTS</h4>
+        
+        <div class="text-center"> 
+            <div class="btn-group pb-3" role="group" aria-label="group">
+                <button type="button" class="btn btn-outline-secondary">
+                <a class="text-muted" href="{% url 'map_view' %}">Map View</a>
+                </button>
+                <button type="button" class="btn btn-secondary">List View</button>
+            </div>
+        </div>
         
         {% for project in projects %}
             <hr>
             <a href="{% url 'detail' project.id %}">
-                <p class="float-right btn btn-sm btn-outline-secondary">View Project</p>
+                <p class="float-right badge badge-pill badge-primary">View Project</p>
             </a>
             <div class="media">
                 {% if project.AffiliationImage %}
@@ -31,10 +28,11 @@
                     <img class="align-self-center mr-3" src="{% static 'aff_image_default.png' %}" width=60 alt="project affiliation image">
                 {% endif %}
                 <div class="media-body">
-                    <h5 class="mt-0"> {{ project.ProjectName }}</h5>
+                    <h6 class="mt-0"> {{ project.ProjectName }}</h6>
                     <p class="text-muted">{{ project.ProjectAffiliation }}</p>
                 </div>
             </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+
 {% endblock %}

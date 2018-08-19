@@ -20,8 +20,8 @@ def detail(request, project_id):
 
 
 def project_points(request):
-        projects_as_geojson = serialize('geojson', Project.objects.all())
-        return JsonResponse(json.loads(projects_as_geojson))
+    projects_as_geojson = serialize('geojson', Project.objects.all())
+    return JsonResponse(json.loads(projects_as_geojson))
 
 
 def map_view(request):
@@ -32,7 +32,33 @@ def list_view(request):
     projects = Project.objects.all()
     return render(request, 'projects/list_view.html', {'projects': projects})
 
-# CRUD views
+# CRUD VIEWS
+
+
+def edit_project(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    if request.method == 'POST':
+        # TODO set some flags for values that don't work???
+        project.ProjectName = request.POST['ProjectName']
+        project.StreamName = request.POST['StreamName']
+        project.BasinName = request.POST['BasinName']
+        project.ProjectLatitude = request.POST['ProjectLatitude']
+        project.ProjectLongitude = request.POST['ProjectLongitude']
+        project.CreatedBy = request.user
+        project.ProjectAffiliation = request.POST['ProjectAffiliation']
+        project.ProjectDescription = request.POST['ProjectDescription']
+        project.InstallDate = request.POST['InstallDate']
+        project.TreatmentLength = request.POST['TreatmentLength']
+        project.TotalStructures = request.POST['TotalStructures']
+        project.PrimaryContactName = request.POST['PrimaryContactName']
+        project.PrimaryContactEmail = request.POST['PrimaryContactEmail']
+
+        lon = request.POST['ProjectLongitude']
+        lat = request.POST['ProjectLatitude']
+        project.geom = GEOSGeometry('POINT(' + lon + ' ' + lat + ')')
+        project.save()
+        return redirect('detail', project.id)
+    return render(request, 'projects/edit_project.html', {'project': project})
 
 
 @login_required(login_url="/landing")
@@ -47,11 +73,17 @@ def new_project(request):
         project.CreatedBy = request.user
         project.ProjectImage = request.FILES['ProjectImage']
         project.ProjectAffiliation = request.POST['ProjectAffiliation']
+        project.ProjectDescription = request.POST['ProjectDescription']
+        project.InstallDate = request.POST['InstallDate']
+        project.TreatmentLength = request.POST['TreatmentLength']
+        project.TotalStructures = request.POST['TotalStructures']
+        project.PrimaryContactName = request.POST['PrimaryContactName']
+        project.PrimaryContactEmail = request.POST['PrimaryContactEmail']
 
         lon = request.POST['ProjectLongitude']
         lat = request.POST['ProjectLatitude']
         project.geom = GEOSGeometry('POINT(' + lon + ' ' + lat + ')')
         project.save()
-        return redirect('landing')
+        return redirect('detail', project.id)
     else:
         return render(request, 'projects/new_project.html')

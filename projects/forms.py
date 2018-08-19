@@ -2,6 +2,7 @@ from django import forms
 
 
 class NewProjectForm(forms.Form):
+
     ProjectName = forms.CharField(max_length=50, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': 'E.G. ',
@@ -32,8 +33,7 @@ class NewProjectForm(forms.Form):
         'id': 'ProjectLongitude',
     }))
 
-    ProjectImage = forms.ImgField(widget=forms.NumberInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'e.g. -120.123456',
-        'id': 'ProjectLongitude',
+    ProjectImage = forms.ImageField(widget=forms.ClearableFileInput(attrs={
+        'class': 'form-control-file',
+        'id': 'ProjectImage',
     }))

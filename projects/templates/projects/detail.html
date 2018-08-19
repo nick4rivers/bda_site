@@ -1,13 +1,73 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
-    {% block content %}
-        <div class="container">
-
-            <h1>
-            <img src="{{ project.AffiliationImage.url }}" height=45 width=45 class="d-inline-block align-center" href="#">
-            {{ project.ProjectName }}</h1>
-            {{ project.get_lat }}
+{% block content %}
+    <div class="container">
+        <div class="media pt-3">
+            {% if project.AffiliationImage %}
+                <img class="align-self-center mr-3" src="{{ project.AffiliationImage.url }}" width=80 alt="project affiliation image">
+            {% else %}
+                <img class="align-self-center mr-3" src="{% static 'aff_image_default.png' %}" width=80 alt="project affiliation image">
+            {% endif %}
+            <div class="media-body">
+                <h4 class=" display-4 mt-0"> {{ project.ProjectName }}</h4>
+                <p class=" mb-2 list-inline-item badge-pill badge-primary">{{ project.ProjectAffiliation }}</p>
+            </div>
         </div>
-
-    {% endblock %}
+        
+        {# PROJECT IMAGE #}
+        <div class="row mt-4">
+            <div class="col-md-7">
+                <img class="img-fluid mb-3 rounded shadow" src="{{ project.ProjectImage.url }}" height=400 alt="project image">
+            </div>
+            {# PROJECT DATA #}
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Stream Name:</label>
+                    <p class="form-control">{{ project.StreamName }}</p>
+                </div>
+                <div class="form-group">
+                    <label>Basin Name:</label>
+                    <p class="form-control">{{ project.BasinName }}</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Date Installed:</label>
+                    <p class="form-control">{{ project.InstallDate }}</p>
+                </div>
+                <div class="form-group">
+                    <label>Treatment Length (m):</label>
+                    <p class="form-control">{{ project.TreatmentLength }}</p>
+                </div>
+                <div class="form-group">
+                    <label>Total BDAs:</label>
+                    <p class="form-control">{{ project.TotalStructures }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-group">
+                    <label>Project Contact:</label>
+                    <p class="form-control">{{ project.PrimaryContactName }}</p>
+                </div>
+                
+            </div>
+            <div class="col-md">
+                <div class="form-group">
+                    <label>Contact Email:</label>
+                    <p class="form-control">{{ project.PrimaryContactEmail }}</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <h5>Project Summary</h5>
+            <p>{{ project.ProjectDescription }}</p>
+        </div>
+        <div>
+            <a href="{% url 'edit_project' project.id %}">
+                <p class="btn btn-secondary">Edit Project</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

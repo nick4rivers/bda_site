@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from django.contrib.gis.db import models
+from django.urls import reverse
+from datetime import datetime
+
 
 # Create your models here.
 
@@ -33,3 +36,9 @@ class Project(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('landing')
+
+    def shit_date(self):
+        return self.InstallDate.strftime("%Y-%m-%d")

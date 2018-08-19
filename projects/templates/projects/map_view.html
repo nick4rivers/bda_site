@@ -6,15 +6,15 @@
     {% leaflet_js %}
     {% leaflet_css %}
     
-    <div class="container text-center">
-        <h3 class="display-3">BDA PROJECTS</h3>
-        <p class="lead">Existing BDA projects found throughout the PNW. You can select projects to see more detail and project attributes</p>
-        
+    <div class="container">
+        <h4 class="display-4">BDA PROJECTS</h4>
+        <div class="text-center">
         <div class="btn-group pb-3" role="group" aria-label="group">
             <button type="button" class="btn btn-secondary">Map View</button>
             <button type="button" class="btn btn-outline-secondary">
                 <a class="text-muted" href="{% url 'list_view' %}">List View</a>
             </button>
+        </div>
         </div>
     </div>
 
@@ -39,9 +39,9 @@
                 var the_pk = feature.properties.pk.toString()
                 var the_url_tag = "{% url 'detail' 9999 %}".replace('9999', the_pk)
 
-                layer.bindPopup('<h2 class="text-muted">'+feature.properties.ProjectName.toString()+'</h2>'+
-                                '<h4>'+feature.properties.ProjectAffiliation.toString()+'</h4>'+
-                                '<a href="'+the_url_tag+'" class="btn btn-sm btn-outline-primary" role="button">View Project</a>');
+                layer.bindPopup('<h5>'+feature.properties.ProjectName.toString()+'</h5>'+
+                                '<h6 class="text-muted">'+feature.properties.ProjectAffiliation.toString()+'</h4>'+
+                                '<a href="'+the_url_tag+'"><p class="btn btn-sm btn-primary">View Project</p></a>');
             }
         });
 
