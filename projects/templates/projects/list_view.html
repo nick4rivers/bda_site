@@ -18,9 +18,12 @@
         
         {% for project in projects %}
             <hr>
-            <a href="{% url 'detail' project.id %}">
-                <p class="float-right badge badge-pill badge-primary">View Project</p>
+            {% if request.user == project.CreatedBy %}
+            <a href="{% url 'edit_project' project.id %}">
+                <p class="float-right badge badge-pill badge-primary">Edit Project</p>
             </a>
+            {% endif %}
+
             <div class="media">
                 {% if project.AffiliationImage %}
                     <img class="align-self-center mr-3" src="{{ project.AffiliationImage.url }}" width=60 alt="project affiliation image">
@@ -29,13 +32,13 @@
                 {% endif %}
                 <div class="media-body">
                     <div class="row">
-                    <div class="col-sm-6">
-                        <h5> {{ project.ProjectName }}</h5>
+                    <div class="col-md-8">
+                        <h4><a class="text-dark" href="{% url 'detail' project.id %}"> {{ project.ProjectName }}</h4>
                         <p class="text-muted">{{ project.ProjectAffiliation }}</p>
                     </div>
-                    <div class="col-sm-5">
-                        <h5> {{ project.StreamName }}</h5>
-                        <p class="text-muted">{{ project.BasinName }}</p>
+                    <div class="col-md-4">
+                        <h5>{{ project.StreamName }}</h5>
+                        <p class="text-muted">{{ project.BasinName }}</a></p>
                     </div>
                     </div>
                 </div>

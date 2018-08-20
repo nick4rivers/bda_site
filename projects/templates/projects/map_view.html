@@ -53,7 +53,10 @@
     {# ##### TAGS FOR MAP CONTAINER ##### #}
         {% leaflet_map "map_style" callback="window.map_init_basic" %}
 
-    <div class="container mt-3">
-                <a class="btn btn-primary" href="{% url 'new_project' %}">New Project</a>
+<div class="container mt-3">
+{% if user.is_authenticated %}
+            <hr>
+            <a class="btn btn-primary" href="{% url 'new_project' %}">New Project</a>
+            {% endif %}
     </div>
 {% endblock %}
