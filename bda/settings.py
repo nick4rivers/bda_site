@@ -148,3 +148,8 @@ LEAFLET_CONFIG = {
 SERIALIZATION_MODULES = {
     'geojson': 'django.contrib.gis.serializers.geojson',
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
