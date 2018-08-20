@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    
+
+    
+    
+    <div class="container mt-3">
+    
+
+
+    <div class="container">
+
+
+        <h4 class="display-4 pb-3">Login</h4>
+        <div class="container col-md-6">
+            <img class="mb-3 mx-auto d-block" src="{% static 'aff_image_default.png' %}" height=100 alt="project image">
+            {% if error %}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong> Sorry! </strong>{{ error }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+        {% endif %}
+
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input placeholder="Username" class="form-control" type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input placeholder="Password" class="form-control" type="password" name="password" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Login</button>
+                <a class="ml-3 btn btn-danger" href="{% url 'landing' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

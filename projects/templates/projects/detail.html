@@ -65,9 +65,12 @@
             <p>{{ project.ProjectDescription }}</p>
         </div>
         <div>
+            {% if request.user == project.CreatedBy %}
             <a href="{% url 'edit_project' project.id %}">
-                <p class="btn btn-secondary">Edit Project</p>
+                <p class="btn btn-primary">Edit Project</p>
             </a>
+            {% endif %}
+            
         </div>
     </div>
 {% endblock %}

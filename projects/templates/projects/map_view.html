@@ -9,6 +9,7 @@
     <div class="container">
         <h4 class="display-4">BDA PROJECTS</h4>
         <div class="text-center">
+        
         <div class="btn-group pb-3" role="group" aria-label="group">
             <button type="button" class="btn btn-secondary">Map View</button>
             <button type="button" class="btn btn-outline-secondary">
@@ -51,4 +52,8 @@
     
     {# ##### TAGS FOR MAP CONTAINER ##### #}
         {% leaflet_map "map_style" callback="window.map_init_basic" %}
+
+    <div class="container mt-3">
+                <a class="btn btn-primary" href="{% url 'new_project' %}">New Project</a>
+    </div>
 {% endblock %}

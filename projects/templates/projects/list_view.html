@@ -28,11 +28,23 @@
                     <img class="align-self-center mr-3" src="{% static 'aff_image_default.png' %}" width=60 alt="project affiliation image">
                 {% endif %}
                 <div class="media-body">
-                    <h6 class="mt-0"> {{ project.ProjectName }}</h6>
-                    <p class="text-muted">{{ project.ProjectAffiliation }}</p>
+                    <div class="row">
+                    <div class="col-sm-6">
+                        <h5> {{ project.ProjectName }}</h5>
+                        <p class="text-muted">{{ project.ProjectAffiliation }}</p>
+                    </div>
+                    <div class="col-sm-5">
+                        <h5> {{ project.StreamName }}</h5>
+                        <p class="text-muted">{{ project.BasinName }}</p>
+                    </div>
+                    </div>
                 </div>
             </div>
             {% endfor %}
+            {% if user.is_authenticated %}
+            <hr>
+            <a class="btn btn-primary" href="{% url 'new_project' %}">New Project</a>
+            {% endif %}
         </div>
 
 {% endblock %}
