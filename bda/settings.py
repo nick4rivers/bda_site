@@ -149,7 +149,11 @@ SERIALIZATION_MODULES = {
     'geojson': 'django.contrib.gis.serializers.geojson',
 }
 
+CONTENT_TYPES = ['images']
+
+MAX_UPLOAD_SIZE = 10485760
+
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
