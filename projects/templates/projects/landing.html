@@ -8,12 +8,16 @@
           <img class="img-fluid" src="{% static 'parrish_banner.jpg' %}">
         </div>
         {# ############ JUMPOTRON ############ #}
+        
+
         <div class="jumbotron jumbotron-fluid text-muted">
           <div class="container text-sm-center">
+            <img class="mx-auto d-block" src="{% static 'jumbo_logo.png' %}" height=200 alt="project image">
             <h3 class="display-3">OR BDA EXPLORER</h3>
-            <p class="lead pb-2">A Source of Information on Beaver Dam Analog Restoration Projects</p>
+            <p class="lead pb-2">Sharing Information Related to Beaver Dam Analog Restoration Projects</p>
           </div>
         </div>
+      
       {# ############################# #}
       {# ########### CARDS ########### #}
       {# ############################# #}
@@ -28,7 +32,7 @@
                     <h4 class="text-muted">About BDAs</h4>
                     <p class="card-text text-muted">Learn more about beaver dam analogs</p>
                     <div class="d-flex justify-content-between align-items-center">
-                      <a class="btn btn-primary btn-sm" href="#">About</a>
+                      <a class="btn btn-primary btn-sm" href="{% url 'about' %}">About</a>
                     </div>
                   </div>
                 </div>

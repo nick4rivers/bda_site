@@ -14,6 +14,10 @@ def landing(request):
     return render(request, 'projects/landing.html')
 
 
+def about(request):
+    return render(request, 'projects/about.html')
+
+
 def detail(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     return render(request, 'projects/detail.html', {'project': project})
