@@ -151,7 +151,7 @@ SERIALIZATION_MODULES = {
 
 CONTENT_TYPES = ['images']
 
-MAX_UPLOAD_SIZE = 2621440
+FILE_UPLOAD_MAX_MEMORY_SIZE = 200000000
 
 try:
     from .local_settings import *
