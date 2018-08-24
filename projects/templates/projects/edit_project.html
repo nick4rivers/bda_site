@@ -107,7 +107,7 @@
                 <textarea rows="5" placeholder="Short summary of the project - goals, structure construction, lessons learned, etc......" class="form-control" type="text" name="ProjectDescription"> {{ project.ProjectDescription }}</textarea>
             </div>
             <button class="btn btn-primary" type="submit">Save Edits</button>
-            <a class="ml-3 btn btn-warning" href="{% url 'detail' project.id %}">Cancel</a>
+            <a class="ml-3 btn btn-secondary" href="{% url 'detail' project.id %}">Cancel</a>
             <a class="ml-3 btn btn-danger float-right" href="{% url 'delete_project' project.id %}">Delete</a>
             </div>
         </form>

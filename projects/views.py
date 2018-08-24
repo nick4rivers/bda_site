@@ -45,6 +45,15 @@ def delete_project(request, project_id):
     return render(request, 'projects/delete_project.html', {'project': project})
 
 
+def change_project_image(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    if request.method == 'POST':
+        project.ProjectImage = request.FILES['ProjectImage']
+        project.save()
+        return redirect('detail', project.id)
+    return render(request, 'projects/change_project_image.html', {'project': project})
+
+
 def edit_project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     if request.method == 'POST':

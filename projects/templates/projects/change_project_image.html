@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container mt-3">
+    <div class="container">
+        <h4 class="display-4 pb-3">Project Image</h4>
+        <div class="container col-md-6">
+            <img class="mb-3 mx-auto d-block rounded shadow" src="{{ project.ProjectImage.url }}" height=300 alt="project image">
+            <p class="text-muted text-center lead">Change project image:</p>
+            <h4 class="text-center pb-3">{{ project.ProjectName }}</h4>
+
+            <form action="{% url 'change_project_image' project.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="ProjectImage">Choose new image:</label>
+                    <input type="file" class="form-control-file" id="ProjectImage" name="ProjectImage" required>
+                </div>
+
+
+                <button class="btn btn-primary" type="submit">Save Image</button>
+            <a class="ml-3 btn btn-secondary" href="{% url 'detail' project.id %}">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

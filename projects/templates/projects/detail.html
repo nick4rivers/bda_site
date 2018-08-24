@@ -15,10 +15,14 @@
         </div>
         
         {# PROJECT IMAGE #}
-        <div class="row mt-4">
+        <div class="row mt-4 mb-3">
             <div class="col-md-7">
                 <img class="img-fluid mb-3 rounded shadow" src="{{ project.ProjectImage.url }}" height=400 alt="project image">
+                {% if request.user == project.CreatedBy %}
+                    <a class="badge badge-pill badge-primary" href="{% url 'change_project_image' project.id %}">Change Image</a>
+                {% endif %}
             </div>
+
             {# PROJECT DATA #}
             <div class="col-md-5">
                 <div class="form-group">
