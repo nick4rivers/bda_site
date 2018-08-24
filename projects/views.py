@@ -36,7 +36,13 @@ def list_view(request):
     projects = Project.objects.all()
     return render(request, 'projects/list_view.html', {'projects': projects})
 
-# CRUD VIEWS
+
+def delete_project(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('list_view')
+    return render(request, 'projects/delete_project.html', {'project': project})
 
 
 def edit_project(request, project_id):
@@ -51,7 +57,7 @@ def edit_project(request, project_id):
         project.CreatedBy = request.user
         project.ProjectAffiliation = request.POST['ProjectAffiliation']
         project.ProjectDescription = request.POST['ProjectDescription']
-        project.InstallDate = request.POST['InstallDate']
+        project.InstallYear = request.POST['InstallYear']
         project.TreatmentLength = request.POST['TreatmentLength']
         project.TotalStructures = request.POST['TotalStructures']
         project.PrimaryContactName = request.POST['PrimaryContactName']
@@ -78,7 +84,7 @@ def new_project(request):
         project.ProjectImage = request.FILES['ProjectImage']
         project.ProjectAffiliation = request.POST['ProjectAffiliation']
         project.ProjectDescription = request.POST['ProjectDescription']
-        project.InstallDate = request.POST['InstallDate']
+        project.InstallYear = request.POST['InstallYear']
         project.TreatmentLength = request.POST['TreatmentLength']
         project.TotalStructures = request.POST['TotalStructures']
         project.PrimaryContactName = request.POST['PrimaryContactName']

@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.gis.db import models
 from django.urls import reverse
-from datetime import datetime
 
 
 # Create your models here.
@@ -16,7 +15,7 @@ class Project(models.Model):
     BasinName = models.CharField(null=True, blank=True, max_length=50)
     ProjectDescription = models.TextField(null=True, blank=True)
     ProjectImage = models.ImageField(null=True, blank=True, upload_to='project_images/')
-    InstallDate = models.DateField(null=True, blank=True)
+    InstallYear = models.IntegerField(null=True, blank=True)
     TreatmentLength = models.FloatField(null=True, blank=True)
     TotalStructures = models.IntegerField(null=True, blank=True)
     ProjectAffiliation = models.CharField(null=True, blank=True, max_length=60)
@@ -39,6 +38,3 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('landing')
-
-    def shit_date(self):
-        return self.InstallDate.strftime("%Y-%m-%d")

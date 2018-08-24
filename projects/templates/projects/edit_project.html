@@ -84,8 +84,8 @@
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="InstallDate">Install Date - YYYY-MM-DD</label>
-                        <input placeholder="YYYY-MM-DD" class="form-control" type="date" name="InstallDate" value="{{ project.shit_date }}" required>
+                        <label for="InstallYear">Year Installed</label>
+                        <input placeholder="e.g. 2018" class="form-control" type="number" step="1" name="InstallYear" value="{{ project.InstallYear }}" required>
                     </div>
                 </div>
                 <div class="col-md">
@@ -106,9 +106,10 @@
                 <label for="ProjectDescription">Project Description</label>
                 <textarea rows="5" placeholder="Short summary of the project - goals, structure construction, lessons learned, etc......" class="form-control" type="text" name="ProjectDescription"> {{ project.ProjectDescription }}</textarea>
             </div>
-
             <button class="btn btn-primary" type="submit">Save Edits</button>
-            <a class="ml-3 btn btn-danger" href="{% url 'list_view' %}">Cancel</a>
+            <a class="ml-3 btn btn-warning" href="{% url 'detail' project.id %}">Cancel</a>
+            <a class="ml-3 btn btn-danger float-right" href="{% url 'delete_project' project.id %}">Delete</a>
+            </div>
         </form>
     </div>
 {% endblock %}
