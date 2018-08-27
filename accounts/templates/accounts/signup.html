@@ -14,7 +14,7 @@
                 {% endif %}
             <div class="container col-md-6">
                 <img class="mb-3 mx-auto d-block" src="{% static 'aff_image_default.png' %}" height=100 alt="project image">
-            </div>
+
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
                 
@@ -38,5 +38,6 @@
                 <a class="ml-3 btn btn-secondary" href="{% url 'landing' %}">Cancel</a>
             </form>
         </div>
+          </div>
     </div>
 {% endblock %}

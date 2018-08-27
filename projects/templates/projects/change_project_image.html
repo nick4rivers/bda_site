@@ -9,7 +9,7 @@
             <p class="text-muted text-center lead">Change project image:</p>
             <h4 class="text-center pb-3">{{ project.ProjectName }}</h4>
 
-            <form action="{% url 'change_project_image' project.id %}" method="POST">
+            <form action="{% url 'change_project_image' project.id %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="ProjectImage">Choose new image:</label>
@@ -18,7 +18,8 @@
 
 
                 <button class="btn btn-primary" type="submit">Save Image</button>
-            <a class="ml-3 btn btn-secondary" href="{% url 'detail' project.id %}">Cancel</a>
+                <a class="ml-3 btn btn-secondary" href="{% url 'detail' project.id %}">Cancel</a>
+            </form>
         </div>
     </div>
 {% endblock %}
