@@ -3,7 +3,6 @@
 {% block content %}
     <div class="container mt-3">
         <div class="container">
-            <h4 class="display-4 pb-3">Sign Up</h4>
             {% if error %}
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <strong> Sorry! </strong>{{ error }}
@@ -12,8 +11,10 @@
                     </button>
                 </div>
                 {% endif %}
-            <div class="container col-md-6">
+            <div class="container col-md-6 mt-5 mb-5 p-5 rounded shadow">
                 <img class="mb-3 mx-auto d-block" src="{% static 'aff_image_default.png' %}" height=100 alt="project image">
+                <p class="lead text-muted">Please Sign Up</p>
+                <hr>
 
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}

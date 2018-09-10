@@ -3,9 +3,8 @@
 {% block content %}
     <div class="container mt-3">
     <div class="container">
-        <h4 class="display-4 pb-3">Project Image</h4>
-        <div class="container col-md-6">
-            <img class="mb-3 mx-auto d-block rounded shadow" src="{{ project.ProjectImage.url }}" height=300 alt="project image">
+        <div class="mt-5 mb-5 p-5 container col-md-6 rounded shadow">
+            <img class="mb-3 mx-auto img-fluid rounded shadow" src="{{ project.ProjectImage.url }}" alt="project image">
             <p class="text-muted text-center lead">Change project image:</p>
             <h4 class="text-center pb-3">{{ project.ProjectName }}</h4>
 

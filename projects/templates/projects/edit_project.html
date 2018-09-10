@@ -103,8 +103,13 @@
             </div>
             {# PROJECT DESCRIPTION #}
             <div class="form-group">
-                <label for="ProjectDescription">Project Description</label>
-                <textarea rows="5" placeholder="Short summary of the project - goals, structure construction, lessons learned, etc......" class="form-control" type="text" name="ProjectDescription"> {{ project.ProjectDescription }}</textarea>
+                <label for="RestorationObjectives">Restoration Goals and Objectives</label>
+                <textarea rows="3" placeholder="Short summary of the channel and riparian restoration goals and objectives" class="form-control" type="text" name="RestorationObjectives"> {{ project.RestorationObjectives }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="StructureConstruction">Structure Construction Elements</label>
+                <textarea rows="3" placeholder="Short description of the materials and methods used in structure construction" class="form-control" type="text" name="StructureConstruction"> {{ project.StructureConstruction }}</textarea>
             </div>
             <button class="btn btn-primary" type="submit">Save Edits</button>
             <a class="ml-3 btn btn-secondary" href="{% url 'detail' project.id %}">Cancel</a>

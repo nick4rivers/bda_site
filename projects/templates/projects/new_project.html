@@ -107,11 +107,18 @@
                     </div>
                 </div>
             </div>
-            {# PROJECT DESCRIPTION #}
+            {# PROJECT Goals and Objectives #}
             <div class="form-group">
-                <label for="ProjectDescription">Project Description</label>
-                <textarea rows="5" placeholder="Short summary of the project - goals, structure construction, lessons learned, etc......" class="form-control" type="text" name="ProjectDescription" required></textarea>
+                <label for="RestorationObjectives">Restoration Goals and Objectives</label>
+                <textarea rows="3" placeholder="Short summary of the channel and riparian restoration goals and objectives" class="form-control" type="text" name="RestorationObjectives"></textarea>
             </div>
+
+            <div class="form-group">
+                <label for="StructureConstruction">Structure Construction Elements</label>
+                <textarea rows="3" placeholder="Short description of the materials and methods used in structure construction" class="form-control" type="text" name="StructureConstruction"></textarea>
+            </div>
+
+
             <button class="btn btn-primary" type="submit">Save Project</button>
             <a class="ml-3 btn btn-secondary" href="{% url 'list_view' %}">Cancel</a>
         </form>

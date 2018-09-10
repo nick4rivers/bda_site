@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     # my apps
     'projects',
+    'contact',
     # contributed
     'leaflet',
     'djgeojson',

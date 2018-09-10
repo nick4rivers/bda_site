@@ -10,14 +10,6 @@ from .models import Project
 # Create your views here.
 
 
-def landing(request):
-    return render(request, 'projects/landing.html')
-
-
-def about(request):
-    return render(request, 'projects/about.html')
-
-
 def detail(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     return render(request, 'projects/detail.html', {'project': project})
@@ -65,7 +57,8 @@ def edit_project(request, project_id):
         project.ProjectLongitude = request.POST['ProjectLongitude']
         project.CreatedBy = request.user
         project.ProjectAffiliation = request.POST['ProjectAffiliation']
-        project.ProjectDescription = request.POST['ProjectDescription']
+        project.RestorationObjectives = request.POST['RestorationObjectives']
+        project.StructureConstruction = request.POST['StructureConstruction']
         project.InstallYear = request.POST['InstallYear']
         project.TreatmentLength = request.POST['TreatmentLength']
         project.TotalStructures = request.POST['TotalStructures']
@@ -92,7 +85,8 @@ def new_project(request):
         project.CreatedBy = request.user
         project.ProjectImage = request.FILES['ProjectImage']
         project.ProjectAffiliation = request.POST['ProjectAffiliation']
-        project.ProjectDescription = request.POST['ProjectDescription']
+        project.RestorationObjectives = request.POST['RestorationObjectives']
+        project.StructureConstruction = request.POST['StructureConstruction']
         project.InstallYear = request.POST['InstallYear']
         project.TreatmentLength = request.POST['TreatmentLength']
         project.TotalStructures = request.POST['TotalStructures']

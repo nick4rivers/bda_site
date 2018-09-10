@@ -9,7 +9,7 @@
                 <img class="align-self-center mr-3" src="{% static 'aff_image_default.png' %}" width=80 alt="project affiliation image">
             {% endif %}
             <div class="media-body">
-                <h4 class=" display-4 mt-0"> {{ project.ProjectName }}</h4>
+                <h4 class="display-4 mt-0"> {{ project.ProjectName }}</h4>
                 <p class="lead">{{ project.ProjectAffiliation }}</p>
             </div>
         </div>
@@ -65,8 +65,12 @@
             </div>
         </div>
         <div class="form-group">
-            <h5>Project Summary</h5>
-            <p>{{ project.ProjectDescription }}</p>
+            <h5>Project Goals and Objectives</h5>
+            <p>{{ project.RestorationObjectives }}</p>
+        </div>
+        <div class="form-group">
+            <h5>Structure Construction Elements</h5>
+            <p>{{ project.StructureConstruction }}</p>
         </div>
         <div>
             {% if request.user == project.CreatedBy %}

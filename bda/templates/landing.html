@@ -14,7 +14,7 @@
           <div class="container text-sm-center">
             <img class="mx-auto d-block" src="{% static 'jumbo_logo.png' %}" height=200 alt="project image">
             <h3 class="display-3">OR BDA EXPLORER</h3>
-            <p class="lead pb-2">Sharing Information Related to Beaver Dam Analog Restoration Projects</p>
+            <p class="lead pb-2">A source of information on the use of Beaver Dam Analogs for restoration of stream and riparian areas in Oregon</p>
           </div>
         </div>
       
@@ -29,8 +29,8 @@
                 <div class="card mb-4 shadow">
                   <img class="card-img-top" src="{% static 'about_landing.jpg' %}" alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="text-muted">About BDAs</h4>
-                    <p class="card-text text-muted">Learn more about beaver dam analogs</p>
+                    <h4 class="text-muted">About</h4>
+                    <p class="card-text text-muted">Learn more about the BDA Explorer site</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <a class="btn btn-primary btn-sm" href="{% url 'about' %}">About</a>
                     </div>
@@ -43,7 +43,7 @@
                   <img class="card-img-top" src="{% static 'projects_landing.jpg' %}" alt="Card image cap">
                   <div class="card-body">
                     <h4 class="text-muted">Projects</h4>
-                    <p class="card-text text-muted">Explore existing BDA projects</p>
+                    <p class="card-text text-muted">Explore existing BDA projects in OR</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <a class="btn btn-primary btn-sm" href="{% url 'map_view' %}">Projects</a>
                     </div>
@@ -55,8 +55,8 @@
                 <div class="card mb-4 shadow">
                   <img class="card-img-top" src="{% static 'signup_landing.jpg' %}" alt="Card image cap">
                   <div class="card-body">
-                    <h4 class="text-muted">Manage Projects</h4>
-                    <p class="card-text text-muted">Manage your projects</p>
+                    <h4 class="text-muted">Account</h4>
+                    <p class="card-text text-muted">Sign up or login to add your projects</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <a class="btn btn-primary btn-sm" href="{% url 'signup' %}">Sign Up</a>
                       <a class="btn btn-primary btn-sm" href="{% url 'login' %}">Login</a>
@@ -68,5 +68,47 @@
           </div>
         </div>
       </main>
+
+      <div class="container">
+        <hr>
+        <p class="lead text-muted text-center">Project supported by:</p>
+        <div class="row">
+          <div class="col">
+            <a href="https://www.eco-logical-research.com/">
+              <img height=100 src="{% static 'logo_ELR.png' %}" class="mx-auto d-block" alt="ELR">
+            </a>
+            <p class="text-sm-center text-muted">Eco Logical Research</p>
+          </div>
+          
+          <div class="col">
+            <a href="https://www.oregon.gov/oweb/Pages/index.aspx">
+            <img height=100 src="{% static 'logo_OWEB.png' %}" class="mx-auto d-block" alt="OWEB">
+            </a>
+            <p class="text-sm-center text-muted">OWEB</p>
+          </div>
+
+          <div class="col">
+            <a href="https://osucascades.edu/">
+            <img height=100 src="{% static 'logo_OSU.png' %}" class="mx-auto d-block" alt="OSU">
+            </a>
+            <p class="text-sm-center text-muted">OSU Cascades</p>
+          </div>
+
+          <div class="col">
+            <a href="http://www.oregonwatersheds.org/">
+            <img height=100 src="{% static 'logo_WC.png' %}" class="mx-auto d-block" alt="WC">
+            </a>
+            <p class="text-sm-center text-muted">OR NWC</p>
+          </div>
+
+          <div class="col">
+            <a href="http://www.anabranchsolutions.com/">
+            <img height=100 src="{% static 'logo_AS.png' %}" class="mx-auto d-block" alt="AS">
+            </a>
+            <p class="text-sm-center text-muted">Anabranch Solutions</p>
+          </div>
+
+        </div>
+      </div>
     {% endblock %}
       
